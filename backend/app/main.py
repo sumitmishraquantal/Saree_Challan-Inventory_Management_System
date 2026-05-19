@@ -83,6 +83,9 @@ from app.api.dashboard_routes import router as dashboard_router
 from app.api.ledger_routes import router as ledger_router
 
 app = FastAPI()
+from app.db.database import Base, engine
+
+Base.metadata.create_all(bind=engine)
 
 origins = [
     "http://localhost:5173",
