@@ -155,7 +155,6 @@ def get_all_challans(
 
     return enriched_challans
 
-
 def download_challan_pdf(
     db: Session,
     challan_id: int
