@@ -146,29 +146,14 @@ def get_all_challans(
 
     for challan in challans:
 
-        returned_quantity = (
-            get_total_returned_quantity(
+        enriched_challans.append(
+            serialize_challan(
                 db,
-                challan.id
+                challan
             )
         )
 
-        pending_quantity = (
-            challan.quantity -
-            returned_quantity
-        )
-
-        for challan in challans:
-
-            enriched_challans.append(
-                serialize_challan(
-                    db,
-                    challan
-                )
-            )
-
-        return enriched_challans
-    
+    return enriched_challans
 
 
 def download_challan_pdf(
