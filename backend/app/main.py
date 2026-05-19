@@ -17,6 +17,19 @@ from app.api.challan_return_routes import (
     router as return_router
 )
 
+from app.api.auth_routes import (
+    router as auth_router
+)
+
+
+from app.api.dashboard_routes import (
+    router as dashboard_router
+)
+
+from app.api.ledger_routes import (
+    router as ledger_router
+)
+
 app = FastAPI()
 
 origins = [
@@ -38,6 +51,12 @@ app.include_router(supplier_router)
 app.include_router(challan_router)
 
 app.include_router(return_router)
+
+app.include_router(auth_router)
+
+app.include_router(dashboard_router)
+
+app.include_router(ledger_router)
 
 @app.get("/")
 def root():
